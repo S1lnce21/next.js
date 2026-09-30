@@ -1,10 +1,5 @@
-// app/blog/[slug]/page.tsx
-export async function generateStaticParams() {
-    return [{ slug: 'nextjs-vvedenie' }, { slug: 'react-osnovy' }];
-}
-
 export default async function BlogPost({
-    params
+    params,
 }: {
     params: Promise<{ slug: string }>;
 }) {
@@ -14,4 +9,11 @@ export default async function BlogPost({
             <h1>Статья: {slug}</h1>
         </article>
     );
+}
+
+export async function generateStaticParams() {
+    return [
+        { slug: 'nextjs-vvedenie' },
+        { slug: 'react-osnovy' },
+    ];
 }
